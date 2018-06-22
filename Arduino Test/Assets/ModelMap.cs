@@ -66,7 +66,30 @@ public class ModelMap : MonoBehaviour {
         new Vector3(-7.07f, 0f, -5f)
     };
 
-    float timer;
+    Vector3[] targetRotations = new[] {
+        new Vector3(60f, 30f, 0f),
+        new Vector3(0f, 60f, 30f),
+        new Vector3(30f, 0f, 60f),
+        new Vector3(60f, 0f, 30f),
+        new Vector3(30f, 60f, 0f),
+        new Vector3(0f, 30f, 60f)
+    };
+
+
+    float timer = 0f;
+    bool timerOn = false;
+
+    Vector3 targetLocation;
+    Vector3 targetRotation;
+
+    Vector3 locationStart;
+    Vector3 locationEnd;
+    Vector3 rotationEnd;
+    Vector3 locationDiff;
+    Vector3 rotationDiff;
+    
+
+
 
     void Awake()
     {
@@ -114,7 +137,7 @@ public class ModelMap : MonoBehaviour {
 
         trigger();
 
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown("v"))
         {
             posToggle++;
             posToggle = posToggle % 2;
@@ -128,6 +151,7 @@ public class ModelMap : MonoBehaviour {
                     random = random.OrderBy(x => r.Next()).ToArray();
 
                 }
+                timer = 0f;
 
                 counter++;
                 counter = counter % 6;
@@ -135,7 +159,7 @@ public class ModelMap : MonoBehaviour {
                 print("Model Number " + random[counter]);
 
                 Models[random[counter]].SetActive(true);
-                Models[random[counter]].transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                Models[random[counter]].transform.localPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 Models[random[counter]].transform.localRotation = new Quaternion(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z, transform.localRotation.w);
 
 
@@ -167,20 +191,45 @@ public class ModelMap : MonoBehaviour {
                 }
             }
         }
-            if (Input.GetKeyDown("w") && posToggle == 0)
+            if (Input.GetKeyDown("b") && posToggle == 0)
             {
                 System.Random rt = new System.Random();
                 randomTarget = random.OrderBy(x => rt.Next()).ToArray();
 
+            targetLocation = targetLocations[randomTarget[counter]];
+            targetRotation = targetRotations[randomTarget[counter]];
+
                 Targets[random[counter]].SetActive(true);
-                Targets[random[counter]].transform.localPosition = targetLocations[randomTarget[counter]];
-                Targets[random[counter]].transform.eulerAngles = new Vector3(15, 15, 15);
+                Targets[random[counter]].transform.localPosition = targetLocation;
+                Targets[random[counter]].transform.eulerAngles = targetRotation;
 
             }
-        
-        
+        if (Input.GetKeyDown("n") && posToggle == 0)
+        {
+            timerOn = true; 
+        }
 
-      
+        if(timerOn == true)
+        {
+            timer += Time.deltaTime;
+            locationStart = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        }
+
+        if (Input.GetKeyDown("m") && posToggle == 0)
+        {
+            timerOn = false;
+
+            locationEnd = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            locationDiff = targetLocation - locationStart;
+            rotationEnd = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+            rotationDiff = targetRotation - rotationEnd;
+
+
+        }
+
+
+
+
         if (Input.GetKeyDown("c"))
         {
             mapToggle++;
