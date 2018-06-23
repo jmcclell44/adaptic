@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SixenseHandsController : MonoBehaviour 
 {
+
+    public GameObject trakedSegment;
 	SixenseHand[] 	m_hands;
 
 	Vector3	m_baseOffset;

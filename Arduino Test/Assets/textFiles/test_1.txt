@@ -1,0 +1,1 @@
+Participant Number: (-5.00, -5.00, -5.00)/ Target Location: (-5.00, -5.00, -5.00)/ Target Rotatio: (60.00, 0.00, 30.00)/ LocationStart: (0.00, 0.97, 0.00)/ Location End: (0.00, 0.97, 0.00)/ Rotation End: (0.00, 180.00, 0.00)/ Location Diff: (-5.00, -5.97, -5.00)/ Rotation Diff: (60.00, -180.00, 30.00)/ Timer: 8.89/ 
