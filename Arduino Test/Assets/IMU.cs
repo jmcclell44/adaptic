@@ -113,7 +113,7 @@ public class IMU : MonoBehaviour {
         {
             Quaternion newimu = imu * Quaternion.Inverse(imucap);
 
-            transform.localRotation = Quaternion.Inverse(lowPassFilterQuaternion(imuinter, newimu, lowPassFactor, init));
+            transform.rotation = Quaternion.Inverse(lowPassFilterQuaternion(imuinter, newimu, lowPassFactor, init));
 
 
             init = false;

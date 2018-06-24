@@ -102,6 +102,8 @@ public class ModelMap : MonoBehaviour {
     private int approachCounter = 0;
     bool textOn = true;
 
+    bool participantKnown = false;
+
     void Awake()
     {
         Arduino = GameObject.GetComponent<JohnArduinoManager>();
@@ -141,14 +143,16 @@ public class ModelMap : MonoBehaviour {
             {
                 System.Random ap = new System.Random();
                 randomApproach = randomApproach.OrderBy(x => ap.Next()).ToArray();
+
+                fileExist();
             }
 
 
             if (approachCounter < 3)
             {
-            stringApproach = "Haptic Approach: " + stringApproaches[randomApproach[approachCounter]];
+                stringApproach = "Haptic Approach: " + stringApproaches[randomApproach[approachCounter]];
                 approachCounter++;
-                //approachCounter = approachCounter % 3;
+                participantKnown = false;
 
             }
             else if (approachCounter == 3 )
@@ -254,7 +258,7 @@ public class ModelMap : MonoBehaviour {
             timer += Time.deltaTime;
         }
 
-        if (Input.GetKeyDown("m") && modelOn == true)
+        if (Input.GetKeyDown("k") && modelOn == true)
         {
             timerOn = false;
             locationEnd = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -326,70 +330,72 @@ public class ModelMap : MonoBehaviour {
 
         //stringApproach = ;
 
-        stringParticipantNumber = "Participant Number: " + targetLocation.ToString("N");
-        s += stringParticipantNumber;
-        s += "/ ";
+        //fileName = "Assets/textFiles/test_1.txt";
+
+        stringParticipantNumber = "Participant Number: " + participantNumber.ToString("N");
+        System.IO.File.AppendAllText(fileName, stringParticipantNumber + System.Environment.NewLine);
+
+        System.IO.File.AppendAllText(fileName, stringApproach + System.Environment.NewLine);
 
         stringTargetLocation = "Target Location: " + targetLocation.ToString("N");
-        s += stringTargetLocation;
-        s += "/ ";
+        System.IO.File.AppendAllText(fileName, stringTargetLocation + System.Environment.NewLine);
+
 
         stringTargetRotation = "Target Rotatio: " + targetRotation.ToString("N");
-        s += stringTargetRotation;
-        s += "/ ";
+        System.IO.File.AppendAllText(fileName, stringTargetRotation + System.Environment.NewLine);
+
 
         stringLocationStart = "LocationStart: " + locationStart.ToString("N");
-        s += stringLocationStart;
-        s += "/ ";
+        System.IO.File.AppendAllText(fileName, stringLocationStart + System.Environment.NewLine);
+
 
         stringLocationEnd = "Location End: " + locationEnd.ToString("N");
-        s += stringLocationEnd;
-        s += "/ ";
+        System.IO.File.AppendAllText(fileName, stringLocationEnd + System.Environment.NewLine);
+
 
         stringRotationEnd = "Rotation End: " + rotationEnd.ToString("N");
-        s += stringRotationEnd;
-        s += "/ ";
+        System.IO.File.AppendAllText(fileName, stringRotationEnd + System.Environment.NewLine);
+
 
         stringLocationDiff = "Location Diff: " + locationDiff.ToString("N");
-        s += stringLocationDiff;
-        s += "/ ";
+        System.IO.File.AppendAllText(fileName, stringLocationDiff + System.Environment.NewLine);
+
 
         stringRotationDiff = "Rotation Diff: " + rotationDiff.ToString("N");
-        s += stringRotationDiff;
-        s += "/ ";
+        System.IO.File.AppendAllText(fileName, stringRotationDiff + System.Environment.NewLine);
+
 
         stringTimer = "Timer: " + timer.ToString("N");
-        s += stringTimer;
-        s += "/ ";
+        System.IO.File.AppendAllText(fileName, stringTimer + System.Environment.NewLine);
 
-        fileName = "Assets/textFiles/test_" + participantNumber;
-        fileName += ".txt";
-
-
-
-        System.IO.File.WriteAllText(fileName, s);
+        System.IO.File.AppendAllText(fileName, " " + System.Environment.NewLine);
+        //fileName = "Assets/textFiles/test_" + participantNumber;
+        //fileName += ".txt";
+        //System.IO.File.WriteAllText(fileName, s);
 
 
 
-        ////		s = Convert.ToString (expressions);
-        //for (int i = 0; i < 15; i++)
-        //{
-        //    //
-        //    s += expressions[i].ToString("N");
-        //    s += ",";
-        //    //			s += string.Format("{N}\n", expressions[i]);
-        //}
-        ////		s += "Emotions\n";
-        //for (int i = 0; i < 9; i++)
-        //{
-        //    s += emotions[i].ToString("N");
-        //    s += ",";
-        //    //			s += string.Format("{2}\n", emotions[i]);
-        //}
+        //WriteFile();
+        //participantNumber++;
+    }
 
-        participantNumber++;
+    void fileExist()
+    {
 
-        //return s;
+        while (participantKnown == false)
+        {
+            fileName = "Assets/textFiles/test_" + participantNumber;
+            fileName += ".txt";
+            if (System.IO.File.Exists(fileName))
+            {
+                Debug.Log(fileName + " already exists.");
+                participantNumber++;
+            }
+            else
+            {
+                participantKnown = true;
+            }
+        }
     }
 
     void updateAngles()
