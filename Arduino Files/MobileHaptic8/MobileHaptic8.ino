@@ -111,10 +111,10 @@ void loop() {
   if (counter == 0){
   myservo00.attach(0);
   myservo01.attach(1);
-  myservo02.attach(2);
-  myservo03.attach(3);
-  myservo04.attach(4);
-  myservo05.attach(5);
+  myservo02.attach(4);
+  myservo03.attach(5);
+  myservo04.attach(2);
+  myservo05.attach(3);
   myservo06.attach(6);
   myservo07.attach(7);
   myservo08.attach(8);
@@ -138,16 +138,16 @@ void loop() {
 //  myservo5.writeMicroseconds(pos5);
 //  myservo6.writeMicroseconds(pos6);
 
-  myservo00.write(pos00);
-  myservo01.write(180-pos00);
-  myservo02.write(pos01);
+  myservo00.write(180-pos00);
+  myservo01.write(pos00);
+  myservo02.write(180-pos01);
   myservo03.write(180-pos01);
-  myservo04.write(pos02);
+  myservo04.write(180-pos02);
   myservo05.write(180-pos02);
   myservo06.write(pos03);
-  myservo07.write(180-pos03);
+  myservo07.write(pos03);
   myservo08.write(pos04);
-  myservo09.write(180-pos04);
+  myservo09.write(pos04);
   myservo10.write(pos05);
   myservo11.write(180-pos05);
 

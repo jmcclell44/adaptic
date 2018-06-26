@@ -142,7 +142,8 @@ public class JohnArduinoManager : MonoBehaviour
         //string[] serialValues;
         while (started == false)
             {
-                serialChar = (char)mySPort.ReadChar();
+            int tempRead = mySPort.ReadChar();
+                serialChar = (char)tempRead;
                 //print("serialValue: " + serialChar);
                 if (serialChar == SOP)
                 {
@@ -212,7 +213,7 @@ public class JohnArduinoManager : MonoBehaviour
 
         //if (detach == 1)
         //{
-            writeVal = "<" + string.Format("{0:N02}", detach) + "," + string.Format("{0:N02}", rotateLeftVal4) + ", " + string.Format("{0:N02}", rotateLeftVal2) + ", " + string.Format("{0:N02}", rotateRightVal3) + ", " + string.Format("{0:N02}", rotateRightVal4) + ", " + string.Format("{0:N02}", rotateRightVal2) + ", " + string.Format("{0:N02}", rotateLeftVal3) + ">";
+            writeVal = "<" + string.Format("{0:N02}", detach) + "," + string.Format("{0:N02}", rotateLeftVal4) + ", " + string.Format("{0:N02}", rotateLeftVal3) + ", " + string.Format("{0:N02}", rotateRightVal2) + ", " + string.Format("{0:N02}", rotateRightVal2) + ", " + string.Format("{0:N02}", rotateRightVal3) + ", " + string.Format("{0:N02}", rotateLeftVal4) + ">";
         //}
         //else
         //{

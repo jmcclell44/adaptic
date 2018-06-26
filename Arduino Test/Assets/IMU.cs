@@ -78,17 +78,17 @@ public class IMU : MonoBehaviour {
 
         
 
-        if (callibrate == 0)
-        {
-            align = true;
-            cylinder.SetActive(false);
-        }
+        //if (callibrate == 0)
+        //{
+        //    align = true;
+        //    cylinder.SetActive(false);
+        //}
 
-        if (callibrate == 1)
-        {
-            align = false;
-            cylinder.SetActive(true);
-        }
+        //if (callibrate == 1)
+        //{
+        //    align = false;
+        //    cylinder.SetActive(true);
+        //}
 
         
         //Quaternion imu = new Quaternion(qX, qY, qZ, qW);
@@ -113,7 +113,7 @@ public class IMU : MonoBehaviour {
         {
             Quaternion newimu = imu * Quaternion.Inverse(imucap);
 
-            transform.rotation = Quaternion.Inverse(lowPassFilterQuaternion(imuinter, newimu, lowPassFactor, init));
+            //transform.rotation = Quaternion.Inverse(lowPassFilterQuaternion(imuinter, newimu, lowPassFactor, init));
 
 
             init = false;
@@ -133,7 +133,7 @@ public class IMU : MonoBehaviour {
             //print("zCap: " + zCap);
             //transform.Rotate(0, 0, -zAngleChangeR, Space.Self);
 
-            transform.Rotate(0, 0, zAngleL, Space.Self);
+           // //transform.Rotate(0, 0, zAngleL, Space.Self);
 
             //transform.Rotate(0, 0, zAngleChange/2, Space.Self);
             //Quaternion offSet = Quaternion.Euler(0, 0,-zAngle/2);

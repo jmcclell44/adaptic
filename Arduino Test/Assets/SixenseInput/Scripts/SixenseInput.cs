@@ -91,16 +91,18 @@ public class SixenseInput : MonoBehaviour
 		/// The raw controller position value.
 		/// </summary>
 		public Vector3 PositionRaw { get { return m_Position; } }
-		
-		/// <summary>
-		/// The controller rotation in Unity coordinates.
-		/// </summary>
-		public Quaternion Rotation { get { return new Quaternion( -m_Rotation.x, -m_Rotation.y, m_Rotation.z, m_Rotation.w ); } }
-		
-		/// <summary>
-		/// The raw controller rotation value.
-		/// </summary>
-		public Quaternion RotationRaw { get { return m_Rotation; } }
+
+        /// <summary>
+        /// The controller rotation in Unity coordinates.
+        /// </summary>
+        public Quaternion Rotation { get { return new Quaternion(-m_Rotation.x, -m_Rotation.y, m_Rotation.z, m_Rotation.w); } }
+        //public Quaternion Rotation { get { return new Quaternion(-m_Rotation.x, -m_Rotation.y, -m_Rotation.z, m_Rotation.w); } }
+
+
+        /// <summary>
+        /// The raw controller rotation value.
+        /// </summary>
+        public Quaternion RotationRaw { get { return m_Rotation; } }
 		
 		/// <summary>
 		/// The value which the Trigger value must pass to register a TRIGGER button press.  This value can be set.
@@ -149,6 +151,7 @@ public class SixenseInput : MonoBehaviour
 			m_JoystickY = 0.0f;
 			m_Position.Set( 0.0f, 0.0f, 0.0f );
 			m_Rotation.Set( 0.0f, 0.0f, 0.0f, 1.0f );
+
 		}
 		
 		internal void SetEnabled( bool enabled )

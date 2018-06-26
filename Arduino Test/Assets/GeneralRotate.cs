@@ -8,6 +8,13 @@ public class GeneralRotate : MonoBehaviour
 {
 
     public bool negative;
+    public bool servo1n2;
+    public bool servo3n4;
+    public bool servo5n6;
+    public bool servo7n8;
+    public bool servo9n10;
+    public bool servo11n12;
+
     int negPos;
     public int inputValue;
     public float convOffset = 255;
@@ -24,6 +31,7 @@ public class GeneralRotate : MonoBehaviour
     float AanglePrev = 0f;
     public float toIMU = 0f;
     public string detachNumber;
+    bool shapeActive = false;
 
 
     public float[] potVal = new float[2];
@@ -101,6 +109,7 @@ public class GeneralRotate : MonoBehaviour
 
 
 
+
         if (Input.GetKeyDown("d"))
         {
             detach++;
@@ -132,14 +141,25 @@ public class GeneralRotate : MonoBehaviour
                 zangle++;
             }
         }
-        if (Input.GetKey("right"))
+        else if (Input.GetKey("right"))
         {
             if (zangle >= -90 && zangle <= 95)
             {
                 zangle--;
             }
         }
-
+        else if (Input.GetKey("1"))
+        {
+            shape1();
+        }
+        else if (Input.GetKey("2"))
+        {
+            shape2();
+        }
+        else if (Input.GetKey("3"))
+        {
+            shape3();
+        }
         //float potChange = potVal[0] - potVal[1];
         //transform.Rotate(0, 0, negPos * potChange, Space.Self);
         float zangleChange = zangle - zanglePrev;
@@ -208,4 +228,46 @@ public class GeneralRotate : MonoBehaviour
         }
         return the_median;
     }
+
+    void shape1()
+    {
+        zangle = 0;
+    }
+
+    void shape2()
+    {
+
+        if (shapeActive == true)
+        {
+            zangle = 0;
+            shapeActive = false;
+        }
+        else
+        {
+            if (servo5n6 || servo7n8)
+            {
+                zangle = zangle + 60;
+            }
+            else
+            {
+                zangle = 0;
+            }
+            shapeActive = true;
+        }
+    }
+
+    void shape3()
+    {
+        if (shapeActive == true)
+        {
+            zangle = 0;
+            shapeActive = false;
+        }
+        else
+        {
+            zangle = zangle + 43;
+            shapeActive = true;
+        }
+    }
+
 }

@@ -18,10 +18,7 @@ public class ModelMap : MonoBehaviour {
 
     public GameObject[] Device = new GameObject[4];
 
-    public GameObject[] Models = new GameObject[6];
-    public GameObject[] Targets = new GameObject[6];
-    private int[] random = new int[6] { 0, 1, 2, 3, 4, 5};
-    private int[] randomTarget = new int[6] { 0, 1, 2, 3, 4, 5 };
+
     private int[] randomApproach = new int[3] { 0, 1, 2};
 
     private float[] difference = new float[4];
@@ -61,13 +58,41 @@ public class ModelMap : MonoBehaviour {
     public GameObject HingeR3;
     public GameObject HingeR4;
 
+    public GameObject handController;
+
+
+    ////6 virtual objects//
+    //Vector3[] targetLocations = new[] {
+    //    new Vector3(5f, 5f, -5f),
+    //    new Vector3(5f, -5f, -5f),
+    //    new Vector3(-5f, 5f, -5f),
+    //    new Vector3(-5f, -5f, -5f),
+    //    new Vector3(7.07f, 0f, -5f),
+    //    new Vector3(-7.07f, 0f, -5f)
+    //};
+
+    //Vector3[] targetRotations = new[] {
+    //    new Vector3(60f, 30f, 0f),
+    //    new Vector3(0f, 60f, 30f),
+    //    new Vector3(30f, 0f, 60f),
+    //    new Vector3(60f, 0f, 30f),
+    //    new Vector3(30f, 60f, 0f),
+    //    new Vector3(0f, 30f, 60f)
+    //};
+
+    //string[] stringModels = new string[6] { "book", "phone", "tablet", "hammer", "pen", "flashlight" };
+
+    //public GameObject[] Models = new GameObject[6];
+    //public GameObject[] Targets = new GameObject[6];
+    //private int[] random = new int[6] { 0, 1, 2, 3, 4, 5 };
+    //private int[] randomTarget = new int[6] { 0, 1, 2, 3, 4, 5 };
+
+    //4 virtual objects//
     Vector3[] targetLocations = new[] {
-        new Vector3(5f, 5f, -5f),
-        new Vector3(5f, -5f, -5f),
-        new Vector3(-5f, 5f, -5f),
-        new Vector3(-5f, -5f, -5f),
-        new Vector3(7.07f, 0f, -5f),
-        new Vector3(-7.07f, 0f, -5f)
+        new Vector3(0.093f, 0.285f, -0.2f),
+        new Vector3(-0.093f, 0.285f, -0.2f),
+        new Vector3(0.243f, 0.177f, -0.2f),
+        new Vector3(-0.243f, 0.177f, -0.2f),
     };
 
     Vector3[] targetRotations = new[] {
@@ -75,11 +100,15 @@ public class ModelMap : MonoBehaviour {
         new Vector3(0f, 60f, 30f),
         new Vector3(30f, 0f, 60f),
         new Vector3(60f, 0f, 30f),
-        new Vector3(30f, 60f, 0f),
-        new Vector3(0f, 30f, 60f)
     };
 
-    string[] stringModels = new string[6] { "book", "phone", "tablet", "hammer", "pen", "flashlight" };
+    string[] stringModels = new string[4] { "book", "tablet", "hammer", "flashlight" };
+
+    public GameObject[] Models = new GameObject[4];
+    public GameObject[] Targets = new GameObject[4];
+    private int[] random = new int[4] { 0, 1, 2, 3};
+    private int[] randomTarget = new int[4] { 0, 1, 2, 3};
+
 
     string[] stringApproaches = new string[3] { "Approach 1", "Approach 2", "Approach 3"};
     string stringApproach;
@@ -104,6 +133,8 @@ public class ModelMap : MonoBehaviour {
 
     bool participantKnown = false;
 
+    public float scale = 1f;
+
     void Awake()
     {
         Arduino = GameObject.GetComponent<JohnArduinoManager>();
@@ -122,7 +153,7 @@ public class ModelMap : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < Models.Length; i++)
         {
             Models[i].SetActive(false);
         }
@@ -202,13 +233,14 @@ public class ModelMap : MonoBehaviour {
                 timer = 0f;
                 currentModel = random[counter];
                 counter++;
-                counter = counter % 6;
-                print("counter " + counter);
-                print("Model Number " + random[counter]);
+                counter = counter % Models.Length;
+                //print("counter " + counter);
+                //print("Model Number " + random[counter]);
 
                 Models[currentModel].SetActive(true);
-                Models[currentModel].transform.localPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                Models[currentModel].transform.localRotation = new Quaternion(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z, transform.localRotation.w);
+                print("transform position: " + transform.position);
+                //Models[currentModel].transform.localPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                //Models[currentModel].transform.localRotation = new Quaternion(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z, transform.localRotation.w);
 
 
                 for (int i = 0; i < 4; i++)
@@ -232,16 +264,16 @@ public class ModelMap : MonoBehaviour {
             {
                 System.Random rt = new System.Random();
                 randomTarget = random.OrderBy(x => rt.Next()).ToArray();
-
-            targetLocation = targetLocations[randomTarget[counter]];
+            print("handconroller position: " + handController.transform.position);
+            targetLocation = scale * targetLocations[randomTarget[counter]] + handController.transform.position;
             targetRotation = targetRotations[randomTarget[counter]];
 
-            //Color color = Targets[currentModel].GetComponent<Renderer>().material.color;
-            //color.a = 1f;
+            Color color = Targets[currentModel].GetComponent<Renderer>().material.color;
+            color.a = 0.5f;
 
             Targets[currentModel].SetActive(true);
 
-            //Device[i].GetComponent<Renderer>().material.SetColor("_Color", color);
+            Targets[currentModel].GetComponent<Renderer>().material.SetColor("_Color", color);
 
             Targets[currentModel].transform.localPosition = targetLocation;
                 Targets[currentModel].transform.eulerAngles = targetRotation;
@@ -269,30 +301,30 @@ public class ModelMap : MonoBehaviour {
             makeStringFile();
         }
 
-        if (Input.GetKeyDown("c"))
-        {
-            mapToggle++;
-            mapToggle = mapToggle % 2;
+        //if (Input.GetKeyDown("c"))
+        //{
+        //    mapToggle++;
+        //    mapToggle = mapToggle % 2;
 
-            if (mapToggle == 0)
-            {
-                for (int i = 0; i < 4; i++)
-                {
-                    Device[i].SetActive(false);
-                }
-                imucap = new Quaternion(qX, qZ, qY, qW);
-                Mapped = true;
-            }
-            if (mapToggle == 1)
-            {
-                //Models[random[counter]].transform.rotation = Quaternion.identity;
-                for (int i = 0; i < 4; i++)
-                {
-                    Device[i].SetActive(true);
-                }
-                Mapped = false;
-            }
-        }
+        //    if (mapToggle == 0)
+        //    {
+        //        for (int i = 0; i < 4; i++)
+        //        {
+        //            Device[i].SetActive(false);
+        //        }
+        //        imucap = new Quaternion(qX, qZ, qY, qW);
+        //        Mapped = true;
+        //    }
+        //    if (mapToggle == 1)
+        //    {
+        //        //Models[random[counter]].transform.rotation = Quaternion.identity;
+        //        for (int i = 0; i < 4; i++)
+        //        {
+        //            Device[i].SetActive(true);
+        //        }
+        //        Mapped = false;
+        //    }
+        //}
         //if (Mapped == false)
         //{
         //    qW = Arduino.currentVals[6];
