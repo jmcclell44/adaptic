@@ -1,0 +1,12 @@
+Participant Number: 6.00
+Haptic Approach: Approach 1
+book
+Target Location: (0.24, 0.68, -0.20)
+Target Rotation: (-30.00, 0.00, -60.00)
+Location Start: (0.00, 0.50, 0.00)
+Location End: (0.00, 0.50, 0.00)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (0.24, 0.18, -0.20)
+Rotation Diff: (-30.00, 0.00, -60.00)
+Timer: 1.50
+ 

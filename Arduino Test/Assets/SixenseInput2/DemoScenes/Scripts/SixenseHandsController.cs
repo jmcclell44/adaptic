@@ -109,7 +109,7 @@ public class SixenseHandsController : MonoBehaviour
 
             if (m_bInitialized)
             {
-                
+
                 UpdateHand(hand);
             }
         }
@@ -340,4 +340,3 @@ public class SixenseHandsController : MonoBehaviour
     }
 
 }
-

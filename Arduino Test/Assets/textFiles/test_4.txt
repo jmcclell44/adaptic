@@ -1,0 +1,198 @@
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (-0.09, 0.79, -0.20)
+Target Rotatio: (0.00, 60.00, 30.00)
+LocationStart: (0.00, 0.50, 0.00)
+Location End: (-0.09, 0.78, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (-0.09, 0.29, -0.20)
+Rotation Diff: (0.00, 60.00, 30.00)
+Timer: 14.47
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (0.24, 0.68, -0.20)
+Target Rotatio: (30.00, 0.00, 60.00)
+LocationStart: (-0.01, 0.50, 0.01)
+Location End: (0.24, 0.67, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (0.25, 0.18, -0.21)
+Rotation Diff: (30.00, 0.00, 60.00)
+Timer: 17.65
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (0.09, 0.79, -0.20)
+Target Rotatio: (60.00, 30.00, 0.00)
+LocationStart: (0.00, 0.50, 0.01)
+Location End: (0.08, 0.78, -0.21)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (0.10, 0.29, -0.21)
+Rotation Diff: (60.00, 30.00, 0.00)
+Timer: 14.23
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (-0.24, 0.68, -0.20)
+Target Rotatio: (60.00, 0.00, 30.00)
+LocationStart: (0.00, 0.51, 0.00)
+Location End: (-0.24, 0.67, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (-0.25, 0.17, -0.20)
+Rotation Diff: (60.00, 0.00, 30.00)
+Timer: 16.27
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (-0.09, 0.79, -0.20)
+Target Rotatio: (0.00, 60.00, 30.00)
+LocationStart: (-0.01, 0.51, -0.01)
+Location End: (-0.10, 0.78, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (-0.08, 0.28, -0.19)
+Rotation Diff: (0.00, 60.00, 30.00)
+Timer: 13.87
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (-0.24, 0.68, -0.20)
+Target Rotatio: (60.00, 0.00, 30.00)
+LocationStart: (0.00, 0.51, -0.01)
+Location End: (-0.24, 0.68, -0.19)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (-0.25, 0.17, -0.19)
+Rotation Diff: (60.00, 0.00, 30.00)
+Timer: 18.25
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (0.09, 0.79, -0.20)
+Target Rotatio: (60.00, 30.00, 0.00)
+LocationStart: (0.00, 0.50, -0.01)
+Location End: (0.09, 0.78, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (0.09, 0.28, -0.19)
+Rotation Diff: (60.00, 30.00, 0.00)
+Timer: 17.35
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (0.24, 0.68, -0.20)
+Target Rotatio: (30.00, 0.00, 60.00)
+LocationStart: (-0.02, 0.50, 0.00)
+Location End: (0.23, 0.69, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (0.27, 0.18, -0.20)
+Rotation Diff: (30.00, 0.00, 60.00)
+Timer: 15.49
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (0.24, 0.68, -0.20)
+Target Rotatio: (30.00, 0.00, 60.00)
+LocationStart: (0.02, 0.51, 0.00)
+Location End: (0.02, 0.51, 0.00)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (0.23, 0.16, -0.20)
+Rotation Diff: (30.00, 0.00, 60.00)
+Timer: 5.65
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (-0.09, 0.79, -0.20)
+Target Rotatio: (0.00, 60.00, 30.00)
+LocationStart: (0.02, 0.53, 0.00)
+Location End: (-0.09, 0.78, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (-0.11, 0.26, -0.20)
+Rotation Diff: (0.00, 60.00, 30.00)
+Timer: 6.43
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (-0.24, 0.68, -0.20)
+Target Rotatio: (60.00, 0.00, 30.00)
+LocationStart: (-0.01, 0.50, 0.01)
+Location End: (-0.25, 0.67, -0.21)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (-0.23, 0.17, -0.21)
+Rotation Diff: (60.00, 0.00, 30.00)
+Timer: 9.91
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (0.09, 0.79, -0.20)
+Target Rotatio: (60.00, 30.00, 0.00)
+LocationStart: (0.01, 0.50, -0.03)
+Location End: (0.09, 0.77, -0.21)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (0.09, 0.28, -0.17)
+Rotation Diff: (60.00, 30.00, 0.00)
+Timer: 11.17
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (0.24, 0.68, -0.20)
+Target Rotatio: (30.00, 0.00, 60.00)
+LocationStart: (-0.01, 0.50, 0.01)
+Location End: (0.24, 0.68, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (0.26, 0.17, -0.21)
+Rotation Diff: (30.00, 0.00, 60.00)
+Timer: 11.17
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (-0.24, 0.68, -0.20)
+Target Rotatio: (60.00, 0.00, 30.00)
+LocationStart: (0.04, 0.51, 0.01)
+Location End: (-0.24, 0.67, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (-0.29, 0.17, -0.21)
+Rotation Diff: (60.00, 0.00, 30.00)
+Timer: 13.39
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 2
+Target Location: (-0.09, 0.79, -0.20)
+Target Rotatio: (0.00, 60.00, 30.00)
+LocationStart: (0.04, 0.51, 0.01)
+Location End: (-0.09, 0.78, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (-0.14, 0.27, -0.21)
+Rotation Diff: (0.00, 60.00, 30.00)
+Timer: 13.39
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 3
+Target Location: (0.24, 0.68, -0.20)
+Target Rotatio: (30.00, 0.00, 60.00)
+LocationStart: (-0.02, 0.50, 0.00)
+Location End: (0.24, 0.67, -0.20)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (0.26, 0.18, -0.20)
+Rotation Diff: (30.00, 0.00, 60.00)
+Timer: 16.50
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 3
+Target Location: (0.09, 0.79, -0.20)
+Target Rotatio: (60.00, 30.00, 0.00)
+LocationStart: (-0.01, 0.50, -0.01)
+Location End: (-0.13, 0.72, 0.02)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (0.10, 0.28, -0.19)
+Rotation Diff: (60.00, 30.00, 0.00)
+Timer: 14.47
+ 
+Participant Number: 4.00
+Haptic Approach: Approach 3
+Target Location: (-0.24, 0.68, -0.20)
+Target Rotatio: (60.00, 0.00, 30.00)
+LocationStart: (-0.18, 0.56, 0.03)
+Location End: (-0.13, 0.56, 0.04)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (-0.06, 0.12, -0.23)
+Rotation Diff: (60.00, 0.00, 30.00)
+Timer: 5.34
+ 

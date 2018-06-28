@@ -25,18 +25,19 @@ public class GeneralRotate : MonoBehaviour
     private JohnArduinoManager Arduino;
     int detach = 0;
     int counter = 0;
-    public float[] filterVal = new float[5];
     float Aread = 0f;
     float Aangle = 0f;
     float AanglePrev = 0f;
     public float toIMU = 0f;
-    public string detachNumber;
     bool shapeActive = false;
+
+    float offset = 0;
+
+    Vector3 offsetVec = new Vector3(0f, 0f, 0f);
 
 
     public float[] potVal = new float[2];
-    float diff;
-    int limit = 10;
+
 
     public float position = 0f;
 
@@ -53,11 +54,6 @@ public class GeneralRotate : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        filterVal[2] = 0;
-        filterVal[1] = 0;
-        filterVal[2] = 0;
-        filterVal[1] = 0;
-        filterVal[0] = 0;
     }
 
     // Update is called once per frame
@@ -74,38 +70,11 @@ public class GeneralRotate : MonoBehaviour
         Aread = Arduino.currentVals[inputValue];
 
         Aangle = (Aread - convOffset) * (convMultiplyer);
+        zangle = Aangle;
 
-        filterVal[4] = filterVal[3];
-        filterVal[3] = filterVal[2];
-        filterVal[2] = filterVal[1];
-        filterVal[1] = filterVal[0];
-        filterVal[0] = Aangle;
 
         //Aangle = median_of_3(filterVal[0], filterVal[1], filterVal[2]);
         //Aangle = median_of_5(filterVal);
-
-
-        if (counter < 6)
-        {
-            potVal[0] = 20;
-            potVal[1] = 20;
-            counter++;
-            zangle = Aangle;
-
-        }
-        else if (counter == 6)
-        {
-            potVal[0] = Aangle;
-            potVal[1] = Aangle;
-
-            counter++;
-        }
-        else
-        {
-
-            potVal[1] = potVal[0];
-            potVal[0] = Aangle;
-        }
 
 
 
@@ -172,24 +141,31 @@ public class GeneralRotate : MonoBehaviour
     void bendRotate()
     {
 
-        zangle = zangle + Aangle - AanglePrev;
-        AanglePrev = Aangle;
+        //zangle = zangle + Aangle - AanglePrev;
+        //AanglePrev = Aangle;
 
-        //zangle = potVal[0];
-        float zangleChange = zangle - zanglePrev;
+        ////zangle = potVal[0];
+        //float zangleChange = zangle - zanglePrev;
 
-        transform.Rotate(0, 0, negPos * zangleChange, Space.Self);
+        //transform.Rotate(0, 0, negPos * zangleChange, Space.Self);
 
 
         //float potChange = potVal[0] - potVal[1];
         //transform.Rotate(0, 0, negPos * potChange, Space.Self);
 
+        transform.localEulerAngles = new Vector3(0f, 0f, negPos*(zangle - offset));
+
         if (Input.GetKeyDown("z"))
         {
-            Quaternion zero = Quaternion.Euler(0, 0, 0);
 
-            transform.localRotation = zero;
-            zangle = 0;
+            offset = zangle;
+
+
+
+            //Quaternion zero = Quaternion.Euler(0, 0, 0);
+
+            //transform.localRotation = zero;
+            //zangle = 0;
 
         }
         zanglePrev = zangle;

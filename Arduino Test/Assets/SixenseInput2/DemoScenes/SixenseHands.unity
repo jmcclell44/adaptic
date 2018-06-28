@@ -732,8 +732,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hand: 2
-  m_initialPosition: {x: 0, y: 0, z: 0}
-  m_initialRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &689925912
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,8 +776,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hand: 1
-  m_initialPosition: {x: 0, y: 0, z: 0}
-  m_initialRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!95 &689925915
 Animator:
   serializedVersion: 3
