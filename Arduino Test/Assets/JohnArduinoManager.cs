@@ -224,7 +224,7 @@ public class JohnArduinoManager : MonoBehaviour
         //string writeVal = string.Format("{0:N03}", rotateLeftVal) + "&" + string.Format("{0:N03}", rotateRightVal) + "&";
         //mySPort.WriteLine(writeVal);
 
-        //print("writeval: " + writeVal);
+        print("writeval: " + writeVal);
 
         //print("detach: " + detach);
 

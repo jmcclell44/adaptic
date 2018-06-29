@@ -93,15 +93,15 @@ public class ModelMap : MonoBehaviour {
     Vector3[] targetLocations = new[] {
         //new Vector3(0.093f*31.45f, 0.285f*31.45f, -0.2f*31.45f),
         //new Vector3(-0.093f*31.45f, 0.285f*31.45f, -0.2f*31.45f),
-        new Vector3(0.243f*31.45f, 0.177f*31.45f, -0.2f*31.45f),
-        new Vector3(-0.243f*31.45f, 0.177f*31.45f, -0.2f*31.45f),
-        new Vector3(0f, 9.4f, -0.2f*31.45f),
-                new Vector3(0.243f*31.45f, 0.177f*31.45f, -0.2f*31.45f),
-        new Vector3(-0.243f*31.45f, 0.177f*31.45f, -0.2f*31.45f),
-        new Vector3(0f, 9.4f, -0.2f*31.45f),
-                new Vector3(0.243f*31.45f, 0.177f*31.45f, -0.2f*31.45f),
-        new Vector3(-0.243f*31.45f, 0.177f*31.45f, -0.2f*31.45f),
-        new Vector3(0f, 9.4f, -0.2f*31.45f)
+        new Vector3(0.243f*31.45f, 0.177f*31.45f, 0.2f*31.45f),
+        new Vector3(-0.243f*31.45f, 0.177f*31.45f, 0.2f*31.45f),
+        new Vector3(0f, 9.4f, 0.2f*31.45f),
+        new Vector3(0.243f*31.45f, 0.177f*31.45f, 0.2f*31.45f),
+        new Vector3(-0.243f*31.45f, 0.177f*31.45f, 0.2f*31.45f),
+        new Vector3(0f, 9.4f, 0.2f*31.45f),
+        new Vector3(0.243f*31.45f, 0.177f*31.45f, 0.2f*31.45f),
+        new Vector3(-0.243f*31.45f, 0.177f*31.45f, 0.2f*31.45f),
+        new Vector3(0f, 9.4f, 0.2f*31.45f)
     };
 
     Vector3[] targetRotations = new[] {

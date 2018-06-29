@@ -6,7 +6,7 @@ using System.Threading;
 
 public class GeneralRotate : MonoBehaviour
 {
-
+    public bool print;
     public bool negative;
     public bool servo1n2;
     public bool servo3n4;
@@ -70,7 +70,7 @@ public class GeneralRotate : MonoBehaviour
         Aread = Arduino.currentVals[inputValue];
 
         Aangle = (Aread - convOffset) * (convMultiplyer);
-        zangle = Aangle;
+
 
 
         //Aangle = median_of_3(filterVal[0], filterVal[1], filterVal[2]);
@@ -99,8 +99,49 @@ public class GeneralRotate : MonoBehaviour
 
     }
 
+    //void keyRotate()
+    //{
+    //    //zangle = potVal[1];
+
+    //    if (Input.GetKey("left"))
+    //    {
+    //        if (zangle >= -95 && zangle <= 90)
+    //        {
+    //            zangle++;
+    //        }
+    //    }
+    //    else if (Input.GetKey("right"))
+    //    {
+    //        if (zangle >= -90 && zangle <= 95)
+    //        {
+    //            zangle--;
+    //        }
+    //    }
+    //    else if (Input.GetKey("1"))
+    //    {
+    //        shape1();
+    //    }
+    //    else if (Input.GetKey("2"))
+    //    {
+    //        shape2();
+    //    }
+    //    else if (Input.GetKey("3"))
+    //    {
+    //        shape3();
+    //    }
+    //    //float potChange = potVal[0] - potVal[1];
+    //    //transform.Rotate(0, 0, negPos * potChange, Space.Self);
+    //    float zangleChange = zangle - zanglePrev;
+
+    //    transform.Rotate(0, 0, negPos * zangleChange, Space.Self);
+    //    zanglePrev = zangle;
+
+    //}
+
+
     void keyRotate()
     {
+
         //zangle = potVal[1];
 
         if (Input.GetKey("left"))
@@ -129,18 +170,24 @@ public class GeneralRotate : MonoBehaviour
         {
             shape3();
         }
+
+        if (print == true)
+        {
+            print("zangle: " + zangle);
+        }
         //float potChange = potVal[0] - potVal[1];
         //transform.Rotate(0, 0, negPos * potChange, Space.Self);
-        float zangleChange = zangle - zanglePrev;
 
-        transform.Rotate(0, 0, negPos * zangleChange, Space.Self);
-        zanglePrev = zangle;
+        //float zangleChange = zangle - zanglePrev;
+        //transform.Rotate(0, 0, negPos * zangleChange, Space.Self);
+        //zanglePrev = zangle;
+
+        transform.localEulerAngles = new Vector3(0f, 0f, negPos * (zangle));
 
     }
 
     void bendRotate()
     {
-
         //zangle = zangle + Aangle - AanglePrev;
         //AanglePrev = Aangle;
 
@@ -153,22 +200,20 @@ public class GeneralRotate : MonoBehaviour
         //float potChange = potVal[0] - potVal[1];
         //transform.Rotate(0, 0, negPos * potChange, Space.Self);
 
-        transform.localEulerAngles = new Vector3(0f, 0f, negPos*(zangle - offset));
+        zangle = Aangle;
 
         if (Input.GetKeyDown("z"))
         {
-
             offset = zangle;
-
-
-
             //Quaternion zero = Quaternion.Euler(0, 0, 0);
-
             //transform.localRotation = zero;
             //zangle = 0;
-
         }
-        zanglePrev = zangle;
+        zangle -= offset;
+        transform.localEulerAngles = new Vector3(0f, 0f, negPos*(zangle));
+
+
+        //zanglePrev = zangle;
     }
 
     float median_of_3(float a, float b, float c)
@@ -222,7 +267,7 @@ public class GeneralRotate : MonoBehaviour
         {
             if (servo5n6 || servo7n8)
             {
-                zangle = zangle + 60;
+                zangle = 76;
             }
             else
             {

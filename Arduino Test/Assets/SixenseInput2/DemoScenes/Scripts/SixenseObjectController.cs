@@ -3,7 +3,9 @@ using System.Collections;
 
 public class SixenseObjectController : MonoBehaviour {
 
-    public SixenseHands			Hand;
+     SixenseHands			Hand;
+    bool rightHand = true;
+
 	public Vector3				Sensitivity = new Vector3( 0.01f, 0.01f, 0.01f );
 
     float m_sensitivity = 0.001f; // Sixense units are in mm
@@ -29,7 +31,7 @@ public class SixenseObjectController : MonoBehaviour {
 
     void Awake()
     {
-        bend = angle.GetComponent<GeneralRotate>();
+        //bend = angle.GetComponent<GeneralRotate>();
     }
 
 
@@ -44,7 +46,21 @@ public class SixenseObjectController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if ( Hand == SixenseHands.UNKNOWN )
+        if (Input.GetKeyDown("p"))
+        {
+            rightHand = !rightHand;
+        }
+
+        if (rightHand == true)
+        {
+            Hand = SixenseHands.RIGHT;
+        }
+        else if (rightHand == false)
+        {
+            Hand = SixenseHands.LEFT;
+        }
+
+        if ( Hand == SixenseHands.UNKNOWN )
 		{
 			return;
 		}
@@ -157,7 +173,7 @@ public class SixenseObjectController : MonoBehaviour {
                 if (align == true)
                 {
                     Quaternion newRotation = controller.Rotation * Quaternion.Inverse(imucap);
-                print("hi");
+                //print("hi");
                 this.gameObject.transform.localRotation = newRotation;
             //this.gameObject.transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z);
                 }

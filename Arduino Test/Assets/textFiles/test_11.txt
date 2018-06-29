@@ -1,0 +1,12 @@
+Participant Number: 11.00
+Haptic Approach: Approach 2
+hammer
+Target Location: (2.27, 6.41, -1.95)
+Target Rotation: (15.00, 60.00, 120.00)
+Location Start: (0.00, 0.00, 0.00)
+Location End: (0.00, 0.00, 0.00)
+Rotation End: (0.00, 0.00, 0.00)
+Location Diff: (2.27, 6.41, -1.95)
+Rotation Diff: (15.00, 60.00, 120.00)
+Timer: 36.72
+ 

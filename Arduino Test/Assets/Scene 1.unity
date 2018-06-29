@@ -523,6 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -726,7 +727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39feed8f073960641a37bc905e2cd898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hand: 2
   Sensitivity: {x: 0.01, y: 0.01, z: 0.01}
   cylinder: {fileID: 0}
   angle: {fileID: 0}
@@ -825,7 +825,7 @@ Transform:
   - {fileID: 154058994}
   - {fileID: 169481987}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &126404111 stripped
 Transform:
@@ -917,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -1069,6 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -1816,7 +1818,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c1e62797b23e826419d2198acabfbf52, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c1e62797b23e826419d2198acabfbf52, type: 3}
       propertyPath: m_LocalScale.x
@@ -2012,7 +2014,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 26fa7548b3bd3ad45bb87d78d35de714, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 26fa7548b3bd3ad45bb87d78d35de714, type: 3}
       propertyPath: m_LocalScale.x
@@ -2197,13 +2199,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 309792039}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: -0.004, z: -0.01}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1145162871}
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 1513186519}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &309792041
 MonoBehaviour:
@@ -2211,12 +2213,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 309792039}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39feed8f073960641a37bc905e2cd898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hand: 2
   Sensitivity: {x: 0.01, y: 0.01, z: 0.01}
   cylinder: {fileID: 180013493}
   angle: {fileID: 1144260637}
@@ -2344,6 +2345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -2876,7 +2878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &459270101
 Transform:
   m_ObjectHideFlags: 0
@@ -2890,7 +2892,7 @@ Transform:
   - {fileID: 1429396197}
   - {fileID: 26812825}
   m_Father: {fileID: 1513186519}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &459270102
 MonoBehaviour:
@@ -2903,6 +2905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -3171,6 +3174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 1
@@ -3428,6 +3432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 1
   servo3n4: 0
@@ -3557,6 +3562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -4554,6 +4560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 1
   servo3n4: 0
@@ -5871,6 +5878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -6373,7 +6381,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1929246686285480, guid: 293e535f7e7202f43ba7dea95e242699, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4275645867020802, guid: 293e535f7e7202f43ba7dea95e242699, type: 2}
       propertyPath: m_LocalPosition.x
@@ -6626,6 +6634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -6926,6 +6935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -7002,7 +7012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39feed8f073960641a37bc905e2cd898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hand: 2
   Sensitivity: {x: 0.01, y: 0.01, z: 0.01}
   cylinder: {fileID: 0}
   angle: {fileID: 0}
@@ -7046,8 +7055,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 066384d4e66ede548952317366692ad3, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1145162870}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.5769494, y: 0.004, z: 0.01}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.7769494, y: 0, z: 0}
   m_LocalScale: {x: 0.03884747, y: 0.038847476, z: 0.03884747}
   m_Children:
   - {fileID: 1144260641}
@@ -7122,7 +7131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39feed8f073960641a37bc905e2cd898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hand: 2
   Sensitivity: {x: 0.01, y: 0.01, z: 0.01}
   cylinder: {fileID: 180013493}
   angle: {fileID: 0}
@@ -7567,6 +7575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -7798,7 +7807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1267060584
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8262,7 +8271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39feed8f073960641a37bc905e2cd898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hand: 2
   Sensitivity: {x: 0.01, y: 0.01, z: 0.01}
   cylinder: {fileID: 0}
   angle: {fileID: 0}
@@ -8712,12 +8720,12 @@ MonoBehaviour:
   - 0
   - 0
   output: 0
-  HingeL2: {fileID: 1750226277}
-  HingeL3: {fileID: 1741660789}
-  HingeL4: {fileID: 1980155914}
-  HingeR2: {fileID: 459270100}
-  HingeR3: {fileID: 26812824}
-  HingeR4: {fileID: 1092613929}
+  HingeL2: {fileID: 1941110088}
+  HingeL3: {fileID: 479801484}
+  HingeL4: {fileID: 2022292320}
+  HingeR2: {fileID: 1558016803}
+  HingeR3: {fileID: 2027090637}
+  HingeR4: {fileID: 1144260637}
 --- !u!4 &1381265490
 Transform:
   m_ObjectHideFlags: 0
@@ -8907,7 +8915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39feed8f073960641a37bc905e2cd898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hand: 2
   Sensitivity: {x: 0.01, y: 0.01, z: 0.01}
   cylinder: {fileID: 180013493}
   angle: {fileID: 1144260637}
@@ -8999,7 +9006,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1395799985
 MonoBehaviour:
@@ -9616,6 +9623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -9986,27 +9994,28 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1513186519
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1513186518}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1496744606}
+  - {fileID: 309792040}
   - {fileID: 1883736554}
-  - {fileID: 147893608}
+  - {fileID: 1496744606}
   - {fileID: 1267060587}
-  - {fileID: 2145730714}
+  - {fileID: 147893608}
   - {fileID: 1750226278}
+  - {fileID: 2145730714}
   - {fileID: 459270101}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1513186520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10037,17 +10046,17 @@ MonoBehaviour:
   approachText: {fileID: 1699758108}
   GameObject: {fileID: 1381265488}
   Device:
-  - {fileID: 1580502439}
-  - {fileID: 985114898}
-  - {fileID: 1429396196}
-  - {fileID: 798047312}
-  HingeL2: {fileID: 1750226277}
-  HingeL3: {fileID: 1741660789}
-  HingeL4: {fileID: 1980155914}
-  HingeR2: {fileID: 459270100}
-  HingeR3: {fileID: 26812824}
-  HingeR4: {fileID: 1092613929}
-  handController: {fileID: 1306712020}
+  - {fileID: 1087541157}
+  - {fileID: 619609805}
+  - {fileID: 1906715941}
+  - {fileID: 1145162870}
+  HingeL2: {fileID: 1941110088}
+  HingeL3: {fileID: 479801484}
+  HingeL4: {fileID: 2022292320}
+  HingeR2: {fileID: 1558016803}
+  HingeR3: {fileID: 2027090637}
+  HingeR4: {fileID: 1144260637}
+  handController: {fileID: 1513186518}
   Models:
   - {fileID: 1496744605}
   - {fileID: 2145730713}
@@ -10059,7 +10068,7 @@ MonoBehaviour:
   - {fileID: 2057903230}
   - {fileID: 546107294}
   scale: 1
-  parentHand: {fileID: 530563509}
+  parentHand: {fileID: 1513186518}
 --- !u!114 &1513186522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10071,17 +10080,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39feed8f073960641a37bc905e2cd898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hand: 2
   Sensitivity: {x: 0.01, y: 0.01, z: 0.01}
-  cylinder: {fileID: 0}
-  angle: {fileID: 0}
+  cylinder: {fileID: 180013493}
+  angle: {fileID: 1144260637}
 --- !u!114 &1513186523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1513186518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b535070346aca5943826e158478d71ee, type: 3}
   m_Name: 
@@ -10096,7 +10104,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1513186518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1358ef01f66886f4b9f02d8b6c2addbb, type: 3}
   m_Name: 
@@ -10324,6 +10332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -10479,6 +10488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 1
@@ -11938,6 +11948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -12019,6 +12030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 1
@@ -12146,7 +12158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1750226278
 Transform:
   m_ObjectHideFlags: 0
@@ -12173,6 +12185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -12471,6 +12484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 1
@@ -13195,6 +13209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -13386,6 +13401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 1
   servo3n4: 0
@@ -13636,6 +13652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 0
   servo1n2: 1
   servo3n4: 0
@@ -13732,6 +13749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  print: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -14178,7 +14196,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ff741a488d5718468741f9be3849713, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ff741a488d5718468741f9be3849713, type: 3}
       propertyPath: m_LocalScale.x

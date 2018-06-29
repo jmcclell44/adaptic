@@ -1,0 +1,12 @@
+Participant Number: 12.00
+Haptic Approach: Approach 2
+tablet
+Target Location: (7.62, 2.59, -1.63)
+Target Rotation: (15.00, 60.00, 120.00)
+Location Start: (-0.04, -2.95, -7.93)
+Location End: (7.61, 2.55, -1.65)
+Rotation End: (15.21, 59.25, 118.99)
+Location Diff: (0.01, 0.03, 0.02)
+Rotation Diff: (-0.21, 0.75, 1.01)
+Timer: 27.88
+ 
