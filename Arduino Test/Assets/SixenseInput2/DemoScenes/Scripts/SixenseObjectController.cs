@@ -49,15 +49,21 @@ public class SixenseObjectController : MonoBehaviour {
         if (Input.GetKeyDown("p"))
         {
             rightHand = !rightHand;
+
+ 
+
         }
 
         if (rightHand == true)
         {
             Hand = SixenseHands.RIGHT;
+            //m_baseControllerPosition = new Vector3(-2.36f, -2.99f, -8.9f);
+
         }
         else if (rightHand == false)
         {
             Hand = SixenseHands.LEFT;
+            //m_baseControllerPosition = new Vector3(1.04f, -0.21f, -10.57f);
         }
 
         if ( Hand == SixenseHands.UNKNOWN )
@@ -90,14 +96,16 @@ public class SixenseObjectController : MonoBehaviour {
 			m_enabled = !m_enabled;
 			
 			// delta controller position is relative to this point
-			m_baseControllerPosition = new Vector3(
-                                                    controller.Position.x * Sensitivity.x,
-                                                    controller.Position.y * Sensitivity.y,
-                                                    controller.Position.z * Sensitivity.z
-                                                    //SixenseInput.Controller.Position.x * Sensitivity.x,
-                                                    //controller.Position.y * Sensitivity.y,
-                                                    //controller.Position.z * Sensitivity.z
-                                                    );
+			//m_baseControllerPosition = new Vector3(
+   //                                                 //controller.Position.x * Sensitivity.x,
+   //                                                 //controller.Position.y * Sensitivity.y,
+   //                                                 //controller.Position.z * Sensitivity.z
+   //                                                 //SixenseInput.Controller.Position.x * Sensitivity.x,
+   //                                                 //controller.Position.y * Sensitivity.y,
+   //                                                 //controller.Position.z * Sensitivity.z
+   //                                                 //-2.36f, -2.99f, -8.9f
+   //                                                 1.04f, -0.21f, -10.57f
+   //                                                 );
 			
 			// this is the new start position
 			m_initialPosition = this.gameObject.transform.localPosition;
@@ -105,8 +113,9 @@ public class SixenseObjectController : MonoBehaviour {
 		
 		if ( m_enabled )
 		{
-			UpdatePosition( controller );
-			UpdateRotation( controller );
+            UpdateRotation(controller);
+
+            UpdatePosition( controller );
             //offset(controller);
         }
     }
@@ -128,7 +137,15 @@ public class SixenseObjectController : MonoBehaviour {
 
         // update the localposition of the object
         //this.gameObject.transform.localPosition = m_initialPosition + vDeltaControllerPos;
-        this.gameObject.transform.localPosition = (controller.Position - m_baseControllerPosition) * m_sensitivity * scale;
+
+        if (callibrateRight == 1)
+        {
+            this.gameObject.transform.localPosition = (controller.Position) * m_sensitivity * scale - m_baseControllerPosition;
+        }
+        else if (callibrateRight == 0)
+        {
+            this.gameObject.transform.localPosition = (controller.Position) * m_sensitivity * scale;
+        }
     }
 
 
@@ -149,7 +166,8 @@ public class SixenseObjectController : MonoBehaviour {
                     callibrateRight++;
                     callibrateRight = callibrateRight % 2;
                     imucap = controller.Rotation;
-                }
+            m_baseControllerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        }
 
                 if (callibrateRight == 1)
                 {
@@ -177,6 +195,7 @@ public class SixenseObjectController : MonoBehaviour {
                 this.gameObject.transform.localRotation = newRotation;
             //this.gameObject.transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z);
                 }
+
      }
 
     protected void offset(SixenseInput.Controller controller)
