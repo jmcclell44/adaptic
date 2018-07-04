@@ -6,7 +6,12 @@ using System.Threading;
 
 public class GeneralRotate : MonoBehaviour
 {
-    public bool print;
+    public bool move1 = false;
+    public bool move2 = false;
+    public bool move3 = false;
+    public bool move4 = false;
+
+    public bool printing;
     public bool negative;
     public bool servo1n2;
     public bool servo3n4;
@@ -158,20 +163,20 @@ public class GeneralRotate : MonoBehaviour
                 zangle--;
             }
         }
-        else if (Input.GetKey("1"))
+        else if (Input.GetKey("1") || move1 == true)
         {
             shape1();
         }
-        else if (Input.GetKey("2"))
+        else if (Input.GetKey("2") || move2 == true || move3 == true)
         {
             shape2();
         }
-        else if (Input.GetKey("3"))
+        else if (Input.GetKey("3") || move4 == true)
         {
             shape3();
         }
 
-        if (print == true)
+        if (printing == true)
         {
             print("zangle: " + zangle);
         }
@@ -252,43 +257,83 @@ public class GeneralRotate : MonoBehaviour
 
     void shape1()
     {
-        zangle = 0;
+        move1 = true;
+        if (zangle > 1)
+        {
+            zangle--;
+        }
+        else if (zangle < -1)
+        {
+            zangle++;
+        }
+        else
+        {
+            zangle = 0;
+            move1 = false;
+        }
     }
 
     void shape2()
     {
-
-        if (shapeActive == true)
+        if (servo5n6 || servo7n8)
         {
-            zangle = 0;
-            shapeActive = false;
+            if (zangle > 96)
+            {
+                move2 = true;
+
+                zangle--;
+            }
+            else if (zangle < 84)
+            {
+                move2 = true;
+
+                zangle++;
+            }
+            else
+            {
+                zangle = 95;
+                move2 = false;
+            }
         }
         else
         {
-            if (servo5n6 || servo7n8)
+            if (zangle > 1)
             {
-                zangle = 76;
+                move3 = true;
+
+                zangle--;
+            }
+            else if (zangle < -1)
+            {
+                move3 = true;
+
+                zangle++;
             }
             else
             {
                 zangle = 0;
+                move3 = false;
             }
-            shapeActive = true;
         }
+
     }
 
     void shape3()
     {
-        if (shapeActive == true)
-        {
-            zangle = 0;
-            shapeActive = false;
-        }
-        else
-        {
-            zangle = zangle + 43;
-            shapeActive = true;
-        }
+        move4 = true;
+            if (zangle > 48)
+            {
+                zangle--;
+            }
+            else if (zangle < 46)
+            {
+                zangle++;
+            }
+            else
+            {
+                zangle = 47;
+                move4 = false;
+            }
     }
 
 }

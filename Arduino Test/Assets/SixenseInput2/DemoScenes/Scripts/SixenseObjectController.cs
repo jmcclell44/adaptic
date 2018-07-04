@@ -28,6 +28,8 @@ public class SixenseObjectController : MonoBehaviour {
     private float bendValueL = 0f;
     float zCap = 0;
 
+    bool invert = false;
+
 
     void Awake()
     {
@@ -46,6 +48,11 @@ public class SixenseObjectController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+        if (Input.GetKeyDown("i"))
+        {
+            invert = !invert;
+        }
+
         if (Input.GetKeyDown("p"))
         {
             rightHand = !rightHand;
@@ -140,11 +147,16 @@ public class SixenseObjectController : MonoBehaviour {
 
         if (callibrateRight == 1)
         {
-            this.gameObject.transform.localPosition = (controller.Position) * m_sensitivity * scale - m_baseControllerPosition;
+            this.gameObject.transform.position = (controller.Position) * m_sensitivity * scale - m_baseControllerPosition;
         }
         else if (callibrateRight == 0)
         {
-            this.gameObject.transform.localPosition = (controller.Position) * m_sensitivity * scale;
+            this.gameObject.transform.position = (controller.Position) * m_sensitivity * scale;
+        }
+
+        if (invert == true)
+        {
+            this.gameObject.transform.position = -1 * this.gameObject.transform.position;
         }
     }
 

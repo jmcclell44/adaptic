@@ -523,7 +523,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -917,7 +921,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -1070,7 +1078,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -1216,7 +1228,7 @@ Transform:
   m_GameObject: {fileID: 181074572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.45000035, y: 0.45000023, z: 0.45000023}
   m_Children:
   - {fileID: 1658558534}
   m_Father: {fileID: 0}
@@ -2064,6 +2076,18 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 02bfb5279dd9fa64295523a2461a6ace, type: 2}
+    - target: {fileID: 400000, guid: 26fa7548b3bd3ad45bb87d78d35de714, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 26fa7548b3bd3ad45bb87d78d35de714, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 26fa7548b3bd3ad45bb87d78d35de714, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.04
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26fa7548b3bd3ad45bb87d78d35de714, type: 3}
   m_IsPrefabParent: 0
@@ -2108,15 +2132,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
       propertyPath: m_LocalScale.x
-      value: 31.45
+      value: 31.78
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
       propertyPath: m_LocalScale.y
-      value: 31.45
+      value: 31.78
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
       propertyPath: m_LocalScale.z
-      value: 31.45
+      value: 31.78
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
       propertyPath: resetTrackerOnLoad
@@ -2407,7 +2431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -2967,7 +2995,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -3236,7 +3268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 1
@@ -3347,6 +3383,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 481030788}
   m_Mesh: {fileID: 4300004, guid: 066384d4e66ede548952317366692ad3, type: 3}
+--- !u!1 &483825695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 483825696}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &483825696
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 483825695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.61, y: 4.90625, z: -4.51}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &484918055
 GameObject:
   m_ObjectHideFlags: 0
@@ -3494,7 +3558,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 1
   servo3n4: 0
@@ -3624,7 +3692,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -3764,8 +3836,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 546107294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6469864, y: 1.6230469, z: 0.29362988}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.293621}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 1674540644}
   m_Father: {fileID: 0}
@@ -4622,7 +4694,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 1
   servo3n4: 0
@@ -5940,7 +6016,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -6696,7 +6776,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -6997,7 +7081,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -7637,7 +7725,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -8796,14 +8888,14 @@ Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 709081cb0c6fe4843a532ea7bc025447, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1389765531}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.734, y: 0.734, z: 0.734}
   m_Children:
   - {fileID: 97668189}
   m_Father: {fileID: 1883736554}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
 --- !u!23 &1389765533
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9657,7 +9749,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -10366,7 +10462,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -10522,7 +10622,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 1
@@ -11224,9 +11328,9 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 26fa7548b3bd3ad45bb87d78d35de714, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1658558531}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -3.421, y: -1.2050781, z: -3.26}
-  m_LocalScale: {x: 0.45000046, y: 0.45000023, z: 0.45000023}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1.04, y: 1.04, z: 1.04}
   m_Children:
   - {fileID: 142464933}
   m_Father: {fileID: 181074573}
@@ -11370,14 +11474,14 @@ Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 709081cb0c6fe4843a532ea7bc025447, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1674540641}
-  m_LocalRotation: {x: -0, y: 0.70710695, z: 0.70710665, w: 0}
-  m_LocalPosition: {x: -0.6469864, y: -1.6230469, z: -0.29362988}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.734, y: 0.734, z: 0.734}
   m_Children:
   - {fileID: 1096692203}
   m_Father: {fileID: 546107295}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.99999, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
 --- !u!1001 &1680924578
 Prefab:
   m_ObjectHideFlags: 0
@@ -11656,9 +11760,9 @@ Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 2ff741a488d5718468741f9be3849713, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1703449214}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30.00003, y: 30.000015, z: 30.000015}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1.26, y: 1.26, z: 1.26}
   m_Children:
   - {fileID: 460793995}
   m_Father: {fileID: 2041779183}
@@ -11982,7 +12086,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -12064,7 +12172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 1
@@ -12219,7 +12331,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -12518,7 +12634,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 1
@@ -12815,14 +12935,14 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 709081cb0c6fe4843a532ea7bc025447, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1883736553}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 1389765532}
   m_Father: {fileID: 1513186519}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1891285271 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: c1e62797b23e826419d2198acabfbf52, type: 3}
@@ -13243,7 +13363,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 0
   servo3n4: 0
@@ -13435,7 +13559,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 1
   servo3n4: 0
@@ -13686,7 +13814,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 0
   servo1n2: 1
   servo3n4: 0
@@ -13783,7 +13915,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c364e612d7ecf468ed30ccbffbf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  print: 0
+  move1: 0
+  move2: 0
+  move3: 0
+  move4: 0
+  printing: 0
   negative: 1
   servo1n2: 0
   servo3n4: 0
@@ -13850,7 +13986,7 @@ Transform:
   m_GameObject: {fileID: 2041779182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 1703449217}
   m_Father: {fileID: 0}
@@ -14283,6 +14419,18 @@ Prefab:
     - target: {fileID: 100000, guid: 2ff741a488d5718468741f9be3849713, type: 3}
       propertyPath: m_Name
       value: Flashlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 2ff741a488d5718468741f9be3849713, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 2ff741a488d5718468741f9be3849713, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 2ff741a488d5718468741f9be3849713, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ff741a488d5718468741f9be3849713, type: 3}

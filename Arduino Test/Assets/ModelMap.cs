@@ -6,6 +6,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ModelMap : MonoBehaviour {
+    string s = null;
+    string stringParticipantNumber;
+    string stringCurrentModel;
+    string stringVirtualObject;
+    string stringTargetLocation;
+    string stringTargetRotation;
+
+    string stringLocationStart;
+    string stringLocationEnd;
+    string stringRotationEnd;
+    string stringLocationDiff;
+    string stringLocationDiffCM;
+    string stringRotationDiff;
+    string stringTimer;
+
     public Text approachText;
 
     private Quaternion imucap;
@@ -105,15 +120,15 @@ public class ModelMap : MonoBehaviour {
     };
 
     Vector3[] targetRotations = new[] {
-        new Vector3(60f, 120f, 15f),
-        new Vector3(15f, 60f, 120f),
-        new Vector3(120f, 15f, 60f),
-        new Vector3(15f, 60f, 120f),
-        new Vector3(120f, 15f, 60f),
-        new Vector3(60f, 120f, 15f),
-        new Vector3(120f, 15f, 60f),
-        new Vector3(60f, 120f, 15f),
-        new Vector3(15f, 60f, 120f)
+        new Vector3(360f-60f, 360f-30f, 360f-15f),
+        new Vector3(360f-15f, 360f-60f, 360f-30f),
+        new Vector3(360f-30f, 360f-15f, 360f-60f),
+        new Vector3(360f-15f, 360f-60f, 360f-30f),
+        new Vector3(360f-30f, 360f-15f, 360f-60f),
+        new Vector3(360f-60f, 360f-30f, 360f-15f),
+        new Vector3(360f-30f, 360f-15f, 360f-60f),
+        new Vector3(360f-60f, 360f-30f, 360f-15f),
+        new Vector3(360f-15f, 360f-60f, 360f-30f)
 
 
         //new Vector3(60f, 15f, 120f),
@@ -121,7 +136,7 @@ public class ModelMap : MonoBehaviour {
 
    
 
-    string[] stringModels = new string[4] { "book", "tablet", "hammer", "flashlight" };
+    string[] stringModels = new string[4] { "book", "flashlight", "tablet", "hammer" };
 
     public GameObject[] Models = new GameObject[4];
     public GameObject[] Targets = new GameObject[4];
@@ -143,7 +158,11 @@ public class ModelMap : MonoBehaviour {
     Vector3 locationEnd;
     Vector3 rotationEnd;
     Vector3 locationDiff;
+    Vector3 locationDiffCM;
     Vector3 rotationDiff;
+
+    Quaternion QrotationDiff;
+    Quaternion QrotationEnd;
 
     Quaternion rotationQTarget;
 
@@ -195,11 +214,13 @@ public class ModelMap : MonoBehaviour {
         //}
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         rt = new System.Random();
         //lt = new System.Random();
+
 
 
 
@@ -224,7 +245,7 @@ public class ModelMap : MonoBehaviour {
                 participantKnown = false;
 
             }
-            else if (approachCounter == 3 )
+            else if (approachCounter == 3)
             {
                 stringApproach = "Haptic Approach: Approach 4";
 
@@ -238,7 +259,7 @@ public class ModelMap : MonoBehaviour {
         if (Input.GetKeyDown("j"))
         {
             textOn = !textOn;
-            if(textOn == true)
+            if (textOn == true)
             {
                 approachText.enabled = true;
             }
@@ -300,8 +321,8 @@ public class ModelMap : MonoBehaviour {
                 }
             }
         }
-            if (Input.GetKeyDown("b") && modelOn == true)
-            {
+        if (Input.GetKeyDown("b") && modelOn == true)
+        {
             targetLocationCounter = targetLocationCounter % targetLocations.Length;
             print("target counter: " + targetLocationCounter);
 
@@ -325,9 +346,9 @@ public class ModelMap : MonoBehaviour {
             //targetRotationCounter++;
 
 
-   print("handconroller position: " + handController.transform.position);
+            print("handconroller position: " + handController.transform.position);
 
-            targetLocation = targetLocations[currentLocationTarget] + handController.transform.position;
+            targetLocation = targetLocations[currentLocationTarget];
             targetRotation = targetRotations[currentLocationTarget];
             //rotationQTarget = Quaternion.Euler(targetRotation);
 
@@ -341,7 +362,7 @@ public class ModelMap : MonoBehaviour {
             Targets[currentModel].GetComponentInChildren<Renderer>().material.SetColor("_Color", color);
 
             Targets[currentModel].transform.localPosition = targetLocation;
-            
+
 
 
             print("target rotation: " + targetRotation);
@@ -352,133 +373,116 @@ public class ModelMap : MonoBehaviour {
 
 
         }
-        if (Input.GetKeyDown("n") && modelOn == true)
+        if (Input.GetKeyDown("n") && modelOn == true && timerOn == false)
         {
             timerOn = true;
             locationStart = new Vector3(parentHand.transform.position.x, parentHand.transform.position.y, parentHand.transform.position.z);
             timer = 0f;
-
         }
 
         if (timerOn == true)
-        {
+        {  
             timer += Time.deltaTime;
-        }
-
-        if (Input.GetKeyDown("k") && modelOn == true)
-        {
-            timerOn = false;
             locationEnd = new Vector3(parentHand.transform.position.x, parentHand.transform.position.y, parentHand.transform.position.z);
             locationDiff = targetLocation - locationEnd;
-            rotationEnd = new Vector3(parentHand.transform.localEulerAngles.x, parentHand.transform.localEulerAngles.y, parentHand.transform.localEulerAngles.z);
-            rotationDiff = targetRotation - rotationEnd;
+            locationDiffCM = new Vector3((locationDiff.x / 31.78f) * 100f, (locationDiff.y / 31.78f) * 100f, (locationDiff.z / 31.78f) * 100f);
+            //rotationEnd = new Vector3(parentHand.transform.localEulerAngles.x, parentHand.transform.localEulerAngles.y, parentHand.transform.localEulerAngles.z);
+            rotationEnd = new Vector3(parentHand.transform.eulerAngles.x, parentHand.transform.eulerAngles.y, parentHand.transform.eulerAngles.z);
 
-            makeStringFile();
+            //QrotationEnd = new Quaternion(parentHand.transform.rotation.x, parentHand.transform.rotation.y, parentHand.transform.rotation.z, parentHand.transform.rotation.w);
+            angleDiff();
+            //rotationDiff = targetRotation - rotationEnd;
         }
 
-        //if (Input.GetKeyDown("c"))
-        //{
-        //    mapToggle++;
-        //    mapToggle = mapToggle % 2;
+        if (Input.GetKeyDown("k") && modelOn == true && timerOn == true)
+        {
+            timerOn = false;
+            //locationEnd = new Vector3(parentHand.transform.position.x, parentHand.transform.position.y, parentHand.transform.position.z);
+            //locationDiff = targetLocation - locationEnd;
+            //rotationEnd = new Vector3(parentHand.transform.localEulerAngles.x, parentHand.transform.localEulerAngles.y, parentHand.transform.localEulerAngles.z);
+            //rotationDiff = targetRotation - rotationEnd;
+            makeStrings();
 
-        //    if (mapToggle == 0)
-        //    {
-        //        for (int i = 0; i < 4; i++)
-        //        {
-        //            Device[i].SetActive(false);
-        //        }
-        //        imucap = new Quaternion(qX, qZ, qY, qW);
-        //        Mapped = true;
-        //    }
-        //    if (mapToggle == 1)
-        //    {
-        //        //Models[random[counter]].transform.rotation = Quaternion.identity;
-        //        for (int i = 0; i < 4; i++)
-        //        {
-        //            Device[i].SetActive(true);
-        //        }
-        //        Mapped = false;
-        //    }
-        //}
-        //if (Mapped == false)
-        //{
-        //    qW = Arduino.currentVals[6];
-        //    qY = Arduino.currentVals[7];
-        //    qX = Arduino.currentVals[8];
-        //    qZ = Arduino.currentVals[9];
-        //    //qW = qW - difference[0];
-        //    //qY = qY - difference[1];
-        //    //qZ = qZ - difference[2];
-        //    //qX = qX - difference[3];
-        //    //Quaternion diff = new Quaternion(-difference[0], -difference[1], -difference[2], -difference[3]);
-        //    Quaternion imu = new Quaternion(qW, qY, qX, qZ);
-        //    Quaternion newimu = imu*Quaternion.Inverse(imucap);
-        //    //RotateObject(bendValue / 2);
-        //    //Models[random[counter]].transform.rotation = newimu;
-        //    Models[random[counter]].transform.rotation = Quaternion.identity;
-        //}
+            saveToFile();
+        }
+
+
+        makeStrings();
+        //OnGUI();
+    }
+    //Loads string variable with expression array
+
+    void angleDiff()
+    {
+        float xdiff;
+        float ydiff;
+        float zdiff;
+
+        if(rotationEnd.x < targetRotation.x - 180)
+        {
+            xdiff = 360 - targetRotation.x + rotationEnd.x;
+        }
+        else
+        {
+            xdiff = rotationEnd.x - targetRotation.x;
+        }
+
+        if (rotationEnd.y < targetRotation.y - 180)
+        {
+            ydiff = 360 - targetRotation.y + rotationEnd.y;
+        }
+        else
+        {
+            ydiff = rotationEnd.y - targetRotation.y;
+        }
+
+        if (rotationEnd.z < targetRotation.z - 180)
+        {
+            zdiff = 360 - targetRotation.z + rotationEnd.z;
+        }
+        else
+        {
+            zdiff = rotationEnd.z - targetRotation.z;
+        }
+
+
+        rotationDiff = new Vector3(xdiff, ydiff, zdiff); 
     }
 
-    //Loads string variable with expression array
-    void makeStringFile()
-    {
-        string s = null;
-        string stringParticipantNumber;
-        string stringVirtualObject;
-        string stringTargetLocation;
-        string stringTargetRotation;
 
-        string stringLocationStart;
-        string stringLocationEnd;
-        string stringRotationEnd;
-        string stringLocationDiff;
-        string stringRotationDiff;
-        string stringTimer;
+
+
+    void makeStrings()
+    {
+
 
         //stringApproach = ;
 
         //fileName = "Assets/textFiles/test_1.txt";
 
         stringParticipantNumber = "Participant Number: " + participantNumber.ToString("N");
-        System.IO.File.AppendAllText(fileName, stringParticipantNumber + System.Environment.NewLine);
 
-        System.IO.File.AppendAllText(fileName, stringApproach + System.Environment.NewLine);
-
-        System.IO.File.AppendAllText(fileName, stringModels[currentModel] + System.Environment.NewLine);
-
+        stringCurrentModel = "Current Model: " + stringModels[currentModel];
 
         stringTargetLocation = "Target Location: " + targetLocation.ToString("N");
-        System.IO.File.AppendAllText(fileName, stringTargetLocation + System.Environment.NewLine);
 
 
         stringTargetRotation = "Target Rotation: " + targetRotation.ToString("N");
-        System.IO.File.AppendAllText(fileName, stringTargetRotation + System.Environment.NewLine);
-
 
         stringLocationStart = "Location Start: " + locationStart.ToString("N");
-        System.IO.File.AppendAllText(fileName, stringLocationStart + System.Environment.NewLine);
-
 
         stringLocationEnd = "Location End: " + locationEnd.ToString("N");
-        System.IO.File.AppendAllText(fileName, stringLocationEnd + System.Environment.NewLine);
-
 
         stringRotationEnd = "Rotation End: " + rotationEnd.ToString("N");
-        System.IO.File.AppendAllText(fileName, stringRotationEnd + System.Environment.NewLine);
-
 
         stringLocationDiff = "Location Diff: " + locationDiff.ToString("N");
-        System.IO.File.AppendAllText(fileName, stringLocationDiff + System.Environment.NewLine);
 
+        stringLocationDiffCM = "Location Diff CM" + locationDiffCM.ToString("N");
 
         stringRotationDiff = "Rotation Diff: " + rotationDiff.ToString("N");
-        System.IO.File.AppendAllText(fileName, stringRotationDiff + System.Environment.NewLine);
-
 
         stringTimer = "Timer: " + timer.ToString("N");
-        System.IO.File.AppendAllText(fileName, stringTimer + System.Environment.NewLine);
 
-        System.IO.File.AppendAllText(fileName, " " + System.Environment.NewLine);
         //fileName = "Assets/textFiles/test_" + participantNumber;
         //fileName += ".txt";
         //System.IO.File.WriteAllText(fileName, s);
@@ -488,6 +492,66 @@ public class ModelMap : MonoBehaviour {
         //WriteFile();
         //participantNumber++;
     }
+
+    void saveToFile()
+    {
+        System.IO.File.AppendAllText(fileName, stringParticipantNumber + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringApproach + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringCurrentModel + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringTargetLocation + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringTargetRotation + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringLocationStart + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringLocationEnd + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringRotationEnd + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringLocationDiff + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringLocationDiffCM + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringRotationDiff + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, stringTimer + System.Environment.NewLine);
+        System.IO.File.AppendAllText(fileName, " " + System.Environment.NewLine);
+
+
+    }
+
+
+    void OnGUI()
+    {
+        GUI.Box(new Rect(0, 0, 250, 250), 
+            stringParticipantNumber + "\n" +
+            stringApproach + "\n" +
+            stringCurrentModel + "\n" +
+            "Target Number: " + targetLocationCounter + "\n" +
+            stringTargetLocation + "\n" +
+            stringTargetRotation + "\n" +
+            stringLocationStart + "\n" +
+            stringLocationEnd + "\n" +
+            stringRotationEnd + "\n" +
+            stringLocationDiff + "\n" +
+            stringLocationDiffCM + "\n" +
+            stringRotationDiff + "\n" +
+            stringTimer
+            );
+
+        //stringParticipantNumber = "Participant Number: " + participantNumber.ToString("N");
+
+        //stringTargetLocation = "Target Location: " + targetLocation.ToString("N");
+
+
+        //stringTargetRotation = "Target Rotation: " + targetRotation.ToString("N");
+
+        //stringLocationStart = "Location Start: " + locationStart.ToString("N");
+
+        //stringLocationEnd = "Location End: " + locationEnd.ToString("N");
+
+        //stringRotationEnd = "Rotation End: " + rotationEnd.ToString("N");
+
+        //stringLocationDiff = "Location Diff: " + locationDiff.ToString("N");
+
+        //stringRotationDiff = "Rotation Diff: " + rotationDiff.ToString("N");
+
+        //stringTimer = "Timer: " + timer.ToString("N");
+
+    }
+
 
     void fileExist()
     {

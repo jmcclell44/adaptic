@@ -1,0 +1,24 @@
+Participant Number: 15.00
+Haptic Approach: Approach 1
+book
+Target Location: (0.26, 9.41, 6.53)
+Target Rotation: (345.00, 300.00, 330.00)
+Location Start: (1.39, 8.81, 1.68)
+Location End: (1.48, 9.21, 1.83)
+Rotation End: (345.20, 297.61, 330.16)
+Location Diff: (-1.22, 0.20, 4.70)
+Rotation Diff: (-0.20, 2.39, -0.16)
+Timer: 1.88
+ 
+Participant Number: 15.00
+Haptic Approach: Approach 1
+book
+Target Location: (1.38, 18.36, 7.80)
+Target Rotation: (300.00, 330.00, 345.00)
+Location Start: (-0.42, 15.55, 4.75)
+Location End: (-0.96, 15.56, 4.54)
+Rotation End: (303.95, 332.60, 346.74)
+Location Diff: (2.34, 2.80, 3.26)
+Rotation Diff: (-3.95, -2.60, -1.74)
+Timer: 3.34
+ 
