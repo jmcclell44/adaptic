@@ -10,6 +10,12 @@ using System.Threading;
 
 public class JohnArduinoManager : MonoBehaviour
 {
+    bool motorOn = false;
+    bool modelOn = true;
+    bool move1 = false;
+    bool move2 = false;
+    bool move3 = false;
+
     int trigger;
     public static string serialName = "COM3";
     public SerialPort mySPort = new SerialPort(serialName, 115200);
@@ -80,17 +86,18 @@ public class JohnArduinoManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {           
+        if(Input.GetKeyDown("v"))
+        {
+            modelOn = !modelOn;
+        }
 
         if (Input.GetKeyDown("d"))
         {
             detach++;
             detach = detach % 2;
-
+            motorOn = !motorOn;
         }
 
-       
-
-       
         //if (trigger == 0)
         //{
         //    rotateLeftVal1 = RotateL1.zangle + 90;
@@ -189,17 +196,52 @@ public class JohnArduinoManager : MonoBehaviour
 
         mySPort.DiscardInBuffer();
 
-        //print("rotateRLeftVal1: " + rotateLeftVal1);
-        rotateLeftVal2 = -RotateL2.zangle + 90;
-        rotateLeftVal3 = -RotateL3.zangle + 90;
-        rotateLeftVal4 = -RotateL4.zangle + 90;
+        if (modelOn == false && motorOn == true)
+        {
+            if (Input.GetKey("1") || move1 == true)
+            {
+                rotateLeftVal2 = shape1(rotateLeftVal2);
+                rotateLeftVal3 = shape1(rotateLeftVal3);
+                rotateLeftVal4 = shape1(rotateLeftVal4);
 
-        rotateRightVal2 = -RotateR2.zangle + 90;
-        rotateRightVal3 = -RotateR3.zangle + 90;
-        rotateRightVal4 = -RotateR4.zangle + 90;
+                rotateRightVal2 = shape1(rotateRightVal2);
+                rotateRightVal3 = shape1(rotateRightVal3);
+                rotateRightVal4 = shape1(rotateRightVal4);
+
+            }
+            else if (Input.GetKey("2") || move2 == true)
+            {
+                rotateLeftVal2 = shape2(rotateLeftVal2);
+                rotateLeftVal3 = shape1(rotateLeftVal3);
+                rotateLeftVal4 = shape1(rotateLeftVal4);
+
+                rotateRightVal2 = shape2(rotateRightVal2);
+                rotateRightVal3 = shape1(rotateRightVal3);
+                rotateRightVal4 = shape1(rotateRightVal4);
+            }
+            else if (Input.GetKey("3") || move3 == true)
+            {
+                rotateLeftVal2 = shape3(rotateLeftVal2);
+                rotateLeftVal3 = shape3(rotateLeftVal3);
+                rotateLeftVal4 = shape3(rotateLeftVal4);
+
+                rotateRightVal2 = shape3(rotateRightVal2);
+                rotateRightVal3 = shape3(rotateRightVal3);
+                rotateRightVal4 = shape3(rotateRightVal4);
+            }
+        }
+        else
+        {
+            rotateLeftVal2 = -RotateL2.zangle + 90;
+            rotateLeftVal3 = -RotateL3.zangle + 90;
+            rotateLeftVal4 = -RotateL4.zangle + 90;
+
+            rotateRightVal2 = -RotateR2.zangle + 90;
+            rotateRightVal3 = -RotateR3.zangle + 90;
+            rotateRightVal4 = -RotateR4.zangle + 90;
+        }
         trigger = 1;
 
-        //print("rotateRightVal4: " + RotateR4.zangle);
 
         writeValues();
 
@@ -229,36 +271,63 @@ public class JohnArduinoManager : MonoBehaviour
         //print("detach: " + detach);
 
     }
-    void individualServo()
+    float shape1(float zangle)
     {
-        //if (Input.GetKeyDown("2"))
-        //{
-        //    detach[1]++;
-        //    detach[1] = detach[1] % 2;
-        //}
+        move1 = true;
+        if (zangle > 91)
+        {
+            zangle--;
+        }
+        else if (zangle < 89)
+        {
+            zangle++;
+        }
+        else
+        {
+            zangle = 90;
+            move1 = false;
+        }
+        return zangle;
 
-        //if (Input.GetKeyDown("3"))
-        //{
-        //    detach[2]++;
-        //    detach[2] = detach[2] % 2;
-        //}
-
-        //if (Input.GetKeyDown("4"))
-        //{
-        //    detach[3]++;
-        //    detach[3] = detach[3] % 2;
-        //}
-
-        //if (Input.GetKeyDown("5"))
-        //{
-        //    detach[4]++;
-        //    detach[4] = detach[4] % 2;
-        //}
-
-        //if (Input.GetKeyDown("6"))
-        //{
-        //    detach[5]++;
-        //    detach[5] = detach[5] % 2;
-        //}
     }
+
+    float shape2(float zangle)
+    {
+        move2 = true;
+        if (zangle > 1)
+        {
+            zangle--;
+        }
+        else if (zangle < -1)
+        {
+            zangle++;
+        }
+        else
+        {
+            zangle = 0;
+            move2 = false;
+        }
+        return zangle;
+    }
+
+
+    float shape3(float zangle)
+    {
+        move3 = true;
+        if (zangle > 140)
+        {
+            zangle--;
+        }
+        else if (zangle < 138)
+        {
+            zangle++;
+        }
+        else
+        {
+            zangle = 139;
+            move3 = false;
+        }
+        return zangle;
+    }
+
 }

@@ -175,6 +175,11 @@ public class GeneralRotate : MonoBehaviour
         {
             shape3();
         }
+        print("move1: " + move1);
+        print("move2: " + move2);
+        print("move3: " + move3);
+        print("move4: " + move4);
+
 
         if (printing == true)
         {

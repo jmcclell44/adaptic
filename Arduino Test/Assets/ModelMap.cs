@@ -284,7 +284,7 @@ public class ModelMap : MonoBehaviour {
             {
                 counter = counter % Models.Length;
 
-                print("counter:  " + counter);
+                //print("counter:  " + counter);
 
                 if (counter == 0)
                 {
@@ -299,7 +299,7 @@ public class ModelMap : MonoBehaviour {
                 //print("Model Number " + random[counter]);
 
                 Models[currentModel].SetActive(true);
-                print("transform position: " + transform.position);
+                //print("transform position: " + transform.position);
                 //Models[currentModel].transform.localPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 //Models[currentModel].transform.localRotation = new Quaternion(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z, transform.localRotation.w);
 
